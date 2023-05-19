@@ -1,14 +1,37 @@
 import { Link, NavLink } from "react-router-dom";
 import "react-tooltip/dist/react-tooltip.css";
 import { Tooltip } from "react-tooltip";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import logo from "../../assets/Kiddu-Logo-removebg.png";
 import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Header = () => {
-  const { user } = useContext(AuthContext);
+  //* hooks
+  const { user, logOut } = useContext(AuthContext);
+
+  //* functions
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        // Sign-out successful.
+        toast.success("You've signed out successfully", {
+          position: "top-center",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+
   return (
     <div className="navbar bg-transparent my-container lg:text-black">
       <div className="navbar-start">
@@ -99,7 +122,9 @@ const Header = () => {
             </li>
             {user ? (
               <li className="lg:hidden">
-                <Link className="font-semibold">Logout</Link>
+                <button className="font-semibold" onClick={handleLogOut}>
+                  Logout
+                </button>
               </li>
             ) : (
               <li className="lg:hidden">
@@ -201,9 +226,12 @@ const Header = () => {
               />
               <Tooltip id="my-tooltip" />
             </Link>{" "}
-            <Link className="py-3 px-8 font-semibold rounded-md text-black bg-[#ADE4DB]">
+            <button
+              className="py-3 px-8 font-semibold rounded-md text-black bg-[#ADE4DB]"
+              onClick={handleLogOut}
+            >
               Logout
-            </Link>
+            </button>
           </div>
         ) : (
           <Link
