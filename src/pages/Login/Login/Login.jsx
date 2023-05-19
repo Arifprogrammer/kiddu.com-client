@@ -1,15 +1,55 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
+import { useContext, useState } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
-import { Link } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
+import { Link, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { AuthContext } from "../../../AuthProvider/AuthProvider";
 
 const Login = () => {
+  //* hooks
+  const [error, setError] = useState("");
+  const { signIn } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  //* functions
+  const handleSignin = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    setError("");
+    signIn(email, password)
+      .then((result) => {
+        // console.log(result.user);
+        toast.success("You've signed in successfully", {
+          position: "top-center",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+        setTimeout(() => {
+          navigate("/");
+        }, 2000);
+        e.target.reset();
+      })
+      .catch((error) => {
+        console.log(error.message);
+        if (error.message === "Firebase: Error (auth/wrong-password).") {
+          setError("Your password is incorrect");
+        }
+      });
+  };
+
   return (
     <>
       <div className="card w-[95%] lg:w-[28%] bg-white mx-auto my-12 lg:mt-24">
-        <form className="card-body p-5 lg:p-8">
+        <form onSubmit={handleSignin} className="card-body p-5 lg:p-8">
           <div className="form-control">
             <label className="label">
               <span className="label-text text-black font-semibold text-base">
@@ -45,6 +85,7 @@ const Login = () => {
                 Forgot password?
               </a>
             </label>
+            <p className="text-red-600 font-semibold mt-1">{error}</p>
           </div>
           <div className="form-control mt-6">
             <button
