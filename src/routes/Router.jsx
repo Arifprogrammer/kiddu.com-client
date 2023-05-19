@@ -4,6 +4,12 @@ import Home from "../pages/Home/Home/Home";
 import Login from "../pages/Login/Login/Login";
 import Register from "../pages/Login/Register/Register";
 
+/* color for UI
+paste - #ADE4DB
+Pink - #F6C6EA
+deep pink - #F261C2
+bg -#F9F9F9 */
+
 const router = createBrowserRouter([
   {
     path: "/",
