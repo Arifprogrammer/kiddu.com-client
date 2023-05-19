@@ -62,7 +62,7 @@ const Register = () => {
   };
   return (
     <>
-      <div className="card w-[95%] lg:w-[28%] bg-white mx-auto my-12 lg:mt-16">
+      <div className="card w-[95%] lg:w-[28%] bg-white mx-auto my-16 lg:mt-16">
         <form onSubmit={handleRegister} className="card-body p-5 lg:p-8">
           <div className="form-control">
             <label className="label">
@@ -75,7 +75,7 @@ const Register = () => {
               type="name"
               placeholder="Type your name"
               required
-              className="input input-bordered bg-[#ADE4DB] text-black font-semibold"
+              className="input input-bordered bg-[#C2E0EB] text-black font-semibold"
             />
           </div>
           <div className="form-control">
@@ -89,7 +89,7 @@ const Register = () => {
               type="photo"
               placeholder="Type your photo url"
               required
-              className="input input-bordered bg-[#ADE4DB] text-black font-semibold"
+              className="input input-bordered bg-[#C2E0EB] text-black font-semibold"
             />
           </div>
           <div className="form-control">
@@ -103,7 +103,7 @@ const Register = () => {
               type="email"
               placeholder="Type your email"
               required
-              className="input input-bordered bg-[#ADE4DB] text-black font-semibold"
+              className="input input-bordered bg-[#C2E0EB] text-black font-semibold"
             />
           </div>
           <div className="form-control">
@@ -117,7 +117,7 @@ const Register = () => {
               type="password"
               placeholder="Type your password"
               required
-              className="input input-bordered bg-[#ADE4DB] text-black font-semibold"
+              className="input input-bordered bg-[#C2E0EB] text-black font-semibold"
             />
             <p className="text-red-600 font-semibold mt-1">{error}</p>
           </div>

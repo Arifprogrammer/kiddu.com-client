@@ -96,7 +96,7 @@ const Login = () => {
 
   return (
     <>
-      <div className="card w-[95%] lg:w-[28%] bg-white mx-auto my-12 lg:mt-24">
+      <div className="card w-[95%] lg:w-[28%] bg-white mx-auto my-16 lg:mt-24">
         <form onSubmit={handleSignin} className="card-body p-5 lg:p-8">
           <div className="form-control">
             <label className="label">
@@ -109,7 +109,7 @@ const Login = () => {
               type="email"
               placeholder="Type your email"
               required
-              className="input input-bordered bg-[#ADE4DB] text-black font-semibold"
+              className="input input-bordered bg-[#C2E0EB] text-black font-semibold"
             />
           </div>
           <div className="form-control">
@@ -123,7 +123,7 @@ const Login = () => {
               type="password"
               placeholder="Type your password"
               required
-              className="input input-bordered bg-[#ADE4DB] text-black font-semibold"
+              className="input input-bordered bg-[#C2E0EB] text-black font-semibold"
             />
             <label className="label">
               <a
