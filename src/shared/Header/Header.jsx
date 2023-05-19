@@ -4,10 +4,11 @@ import { Tooltip } from "react-tooltip";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import logo from "../../assets/Kiddu-Logo-removebg.png";
+import { useContext } from "react";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Header = () => {
-  // const user = { name: "Arif" };
-  const user = null;
+  const { user } = useContext(AuthContext);
   return (
     <div className="navbar bg-transparent my-container lg:text-black">
       <div className="navbar-start">
@@ -37,8 +38,8 @@ const Header = () => {
                 to="/"
                 className={({ isActive }) =>
                   isActive
-                    ? "text-black bg-[#F6C6EA] font-semibold"
-                    : "font-semibold hover:bg-[#F6C6EA] hover:text-black"
+                    ? "text-black bg-[#F261C2] font-semibold"
+                    : "font-semibold hover:bg-[#F261C2] bg-[#F6C6EA] hover:text-black"
                 }
               >
                 Home
@@ -49,8 +50,8 @@ const Header = () => {
                 to="/toys"
                 className={({ isActive }) =>
                   isActive
-                    ? "text-black bg-[#F6C6EA] font-semibold"
-                    : "font-semibold hover:bg-[#F6C6EA] hover:text-black"
+                    ? "text-black bg-[#F261C2] font-semibold"
+                    : "font-semibold hover:bg-[#F261C2] bg-[#F6C6EA] hover:text-black"
                 }
               >
                 All Toys
@@ -63,8 +64,8 @@ const Header = () => {
                     to="/my_toys"
                     className={({ isActive }) =>
                       isActive
-                        ? "text-black bg-[#F6C6EA] font-semibold"
-                        : "font-semibold hover:bg-[#F6C6EA] hover:text-black"
+                        ? "text-black bg-[#F261C2] font-semibold"
+                        : "font-semibold hover:bg-[#F261C2] bg-[#F6C6EA] hover:text-black"
                     }
                   >
                     My Toys
@@ -75,8 +76,8 @@ const Header = () => {
                     to="/toys/upload"
                     className={({ isActive }) =>
                       isActive
-                        ? "text-black bg-[#F6C6EA] font-semibold"
-                        : "font-semibold hover:bg-[#F6C6EA] hover:text-black"
+                        ? "text-black bg-[#F261C2] font-semibold"
+                        : "font-semibold hover:bg-[#F261C2] bg-[#F6C6EA] hover:text-black"
                     }
                   >
                     Add A Toy
@@ -89,8 +90,8 @@ const Header = () => {
                 to="/blog"
                 className={({ isActive }) =>
                   isActive
-                    ? "text-black bg-[#F6C6EA] font-semibold"
-                    : "font-semibold hover:bg-[#F6C6EA] hover:text-black"
+                    ? "text-black bg-[#F261C2] font-semibold"
+                    : "font-semibold hover:bg-[#F261C2] bg-[#F6C6EA] hover:text-black"
                 }
               >
                 Blog
@@ -106,8 +107,8 @@ const Header = () => {
                   to="/signin"
                   className={({ isActive }) =>
                     isActive
-                      ? "text-black bg-[#F6C6EA] font-semibold"
-                      : "font-semibold hover:bg-[#F6C6EA] hover:text-black"
+                      ? "text-black bg-[#F261C2] font-semibold"
+                      : "font-semibold hover:bg-[#F261C2] bg-[#F6C6EA] hover:text-black"
                   }
                 >
                   Login
@@ -126,8 +127,8 @@ const Header = () => {
               to="/"
               className={({ isActive }) =>
                 isActive
-                  ? "text-black bg-[#F6C6EA] font-semibold"
-                  : "font-semibold hover:bg-[#F6C6EA] hover:text-black"
+                  ? "text-black bg-[#F261C2] font-semibold"
+                  : "font-semibold hover:bg-[#F261C2] bg-[#F6C6EA] hover:text-black"
               }
             >
               Home
@@ -138,8 +139,8 @@ const Header = () => {
               to="/toys"
               className={({ isActive }) =>
                 isActive
-                  ? "text-black bg-[#F6C6EA] font-semibold"
-                  : "font-semibold hover:bg-[#F6C6EA] hover:text-black"
+                  ? "text-black bg-[#F261C2] font-semibold"
+                  : "font-semibold hover:bg-[#F261C2] bg-[#F6C6EA] hover:text-black"
               }
             >
               All Toys
@@ -152,8 +153,8 @@ const Header = () => {
                   to="/my_toys"
                   className={({ isActive }) =>
                     isActive
-                      ? "text-black bg-[#F6C6EA] font-semibold"
-                      : "font-semibold hover:bg-[#F6C6EA] hover:text-black"
+                      ? "text-black bg-[#F261C2] font-semibold"
+                      : "font-semibold hover:bg-[#F261C2] bg-[#F6C6EA] hover:text-black"
                   }
                 >
                   My Toys
@@ -164,8 +165,8 @@ const Header = () => {
                   to="/toys/upload"
                   className={({ isActive }) =>
                     isActive
-                      ? "text-black bg-[#F6C6EA] font-semibold"
-                      : "font-semibold hover:bg-[#F6C6EA] hover:text-black"
+                      ? "text-black bg-[#F261C2] font-semibold"
+                      : "font-semibold hover:bg-[#F261C2] bg-[#F6C6EA] hover:text-black"
                   }
                 >
                   Add A Toy
@@ -178,8 +179,8 @@ const Header = () => {
               to="/blog"
               className={({ isActive }) =>
                 isActive
-                  ? "text-black bg-[#F6C6EA] font-semibold"
-                  : "font-semibold hover:bg-[#F6C6EA] hover:text-black"
+                  ? "text-black bg-[#F261C2] font-semibold"
+                  : "font-semibold hover:bg-[#F261C2] bg-[#F6C6EA] hover:text-black"
               }
             >
               Blog
@@ -200,7 +201,7 @@ const Header = () => {
               />
               <Tooltip id="my-tooltip" />
             </Link>{" "}
-            <Link className="py-3 px-8 font-semibold rounded-md text-black bg-white">
+            <Link className="py-3 px-8 font-semibold rounded-md text-black bg-[#ADE4DB]">
               Logout
             </Link>
           </div>

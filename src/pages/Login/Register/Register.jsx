@@ -1,15 +1,69 @@
 /* eslint-disable react/no-unescaped-entities */
-/* eslint-disable no-unused-vars */
-import { FaGithub, FaGoogle } from "react-icons/fa";
-import { Link } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
+import { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { AuthContext } from "../../../AuthProvider/AuthProvider";
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
+  //* hooks
+  const [error, setError] = useState("");
+  const { register } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  //* functions
+  const profileUpdate = (user, name, photo) => {
+    updateProfile(user, {
+      displayName: name,
+      photoURL: photo,
+    })
+      .then(() => {})
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const photo = form.photo.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    setError("");
+    if (password.length < 6) {
+      setError("Your password should be at least 6 character");
+      return;
+    }
+    register(email, password)
+      .then((result) => {
+        profileUpdate(result.user, name, photo);
+        toast.success("You've successfully register your account", {
+          position: "top-center",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+        // console.log(result.user);
+        e.target.reset();
+        setTimeout(() => {
+          navigate("/signin");
+        }, 2000);
+      })
+      .catch((error) => {
+        console.log(error.message);
+        setError(error.message);
+      });
+  };
   return (
     <>
       <div className="card w-[95%] lg:w-[28%] bg-white mx-auto my-12 lg:mt-16">
-        <form className="card-body p-5 lg:p-8">
+        <form onSubmit={handleRegister} className="card-body p-5 lg:p-8">
           <div className="form-control">
             <label className="label">
               <span className="label-text text-black font-semibold text-base">
@@ -65,6 +119,7 @@ const Register = () => {
               required
               className="input input-bordered bg-[#ADE4DB] text-black font-semibold"
             />
+            <p className="text-red-600 font-semibold mt-1">{error}</p>
           </div>
           <div className="form-control mt-6">
             <button
