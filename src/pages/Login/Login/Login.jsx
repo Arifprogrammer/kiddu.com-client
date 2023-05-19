@@ -10,7 +10,7 @@ import { AuthContext } from "../../../AuthProvider/AuthProvider";
 const Login = () => {
   //* hooks
   const [error, setError] = useState("");
-  const { signIn } = useContext(AuthContext);
+  const { signIn, signInWithGoogle } = useContext(AuthContext);
   const navigate = useNavigate();
 
   //* functions
@@ -43,6 +43,29 @@ const Login = () => {
         if (error.message === "Firebase: Error (auth/wrong-password).") {
           setError("Your password is incorrect");
         }
+      });
+  };
+
+  const logInWithGoogle = () => {
+    signInWithGoogle()
+      .then((result) => {
+        // console.log(result.user);
+        toast.success("You've signed in successfully", {
+          position: "top-center",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+        setTimeout(() => {
+          navigate(from, { replace: true });
+        }, 1500);
+      })
+      .catch((error) => {
+        console.log(error.message);
       });
   };
 
@@ -101,6 +124,7 @@ const Login = () => {
             </div>
             <button
               type="submit"
+              onClick={logInWithGoogle}
               className="btn bg-transparent text-black border-[#F6C6EA] border-2 hover:text-black hover:bg-[#F6C6EA] hover:border-0 gap-2 text-base lg:text-xl"
             >
               <FaGoogle /> <span>Google</span>
