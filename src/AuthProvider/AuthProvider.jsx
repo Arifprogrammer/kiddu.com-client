@@ -3,6 +3,7 @@
 /* eslint-disable no-unused-vars */
 import React, { createContext, useEffect, useState } from "react";
 import {
+  GithubAuthProvider,
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
   getAuth,
@@ -22,6 +23,7 @@ const AuthProvider = ({ children }) => {
   //* variables
   const auth = getAuth(app);
   const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider();
 
   //* functions
   const register = (email, pass) => {
@@ -39,6 +41,11 @@ const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, googleProvider);
   };
 
+  const signInWithGithub = () => {
+    setLoading(true);
+    return signInWithPopup(auth, githubProvider);
+  };
+
   const logOut = () => {
     setLoading(true);
     return signOut(auth);
@@ -49,6 +56,7 @@ const AuthProvider = ({ children }) => {
     register,
     signIn,
     signInWithGoogle,
+    signInWithGithub,
     loading,
     logOut,
   };
