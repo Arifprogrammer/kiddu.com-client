@@ -7,6 +7,7 @@ import router from "./routes/Router";
 /* color for UI
 paste - #ADE4DB
 Pink - #F6C6EA
+deep pink - #F261C2
 bg -#F9F9F9 */
 
 ReactDOM.createRoot(document.getElementById("root")).render(
