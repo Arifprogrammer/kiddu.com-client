@@ -4,11 +4,14 @@ import Home from "../pages/Home/Home/Home";
 import Login from "../pages/Login/Login/Login";
 import Register from "../pages/Login/Register/Register";
 
-/* color for UI
+/* 
+color for UI
 paste - #C2E0EB
 Pink - #F6C6EA
 deep pink - #F261C2
-bg -#F9F9F9 */
+bg -#F9F9F9
+footer - #CAD4E6
+*/
 
 const router = createBrowserRouter([
   {

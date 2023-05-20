@@ -14,3 +14,8 @@ body {
   box-shadow: 8px -8px 0px 5px rgba(246, 198, 234, 1),
     -8px 8px 0px 5px rgba(194, 224, 235, 1);
 }
+.gallery img {
+  width: 100%;
+  border: 6px solid #f1c0dd;
+  border-radius: 8px;
+}

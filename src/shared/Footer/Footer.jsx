@@ -11,7 +11,7 @@ const Footer = () => {
             <br />
             Providing qualityful toys since 2015
           </p>
-          <div className="grid grid-flow-col gap-4 mx-auto lg:ml-0 mt-2">
+          <div className="grid grid-flow-col gap-4 mx-auto lg:ml-0 mt-2 lg:mt-0">
             <a>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
