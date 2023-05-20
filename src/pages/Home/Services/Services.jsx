@@ -1,9 +1,17 @@
 import { FaTruck, FaClock, FaMoneyCheckAlt } from "react-icons/fa";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const Services = () => {
+  Aos.init();
   return (
     <>
-      <div className="border-4 border-[#F261C2] hover:border-[#65cbf0] py-8 px-4 lg:p-10 text-center space-y-4 rounded-md">
+      <div
+        className="border-4 border-[#F261C2] hover:border-[#65cbf0] py-8 px-4 lg:p-10 text-center space-y-4 rounded-md"
+        data-aos="flip-down"
+        data-aos-delay="40"
+        data-aos-duration="2000"
+      >
         <FaTruck className="text-7xl mx-auto text-[#65cbf0] hover:text-[#F261C2]" />
         <p className="font-bold text-3xl tracking-widest">Free Shipping</p>
         <p>
@@ -18,7 +26,12 @@ const Services = () => {
           advantage of our fantastic free shipping service.
         </p>
       </div>
-      <div className="border-4 border-[#65cbf0] py-8 px-4 lg:p-10 text-center space-y-4 rounded-md">
+      <div
+        className="border-4 border-[#65cbf0] py-8 px-4 lg:p-10 text-center space-y-4 rounded-md"
+        data-aos="flip-down"
+        data-aos-delay="40"
+        data-aos-duration="2000"
+      >
         <FaClock className="text-7xl mx-auto text-[#F261C2]" />
         <p className="font-bold text-3xl tracking-widest">Support 24/7</p>
         <p>
@@ -33,7 +46,12 @@ const Services = () => {
           just a moment away.
         </p>
       </div>
-      <div className="border-4 border-[#F261C2] hover:border-[#65cbf0] py-8 px-4 lg:p-10 text-center space-y-4 rounded-md">
+      <div
+        className="border-4 border-[#F261C2] hover:border-[#65cbf0] py-8 px-4 lg:p-10 text-center space-y-4 rounded-md"
+        data-aos="flip-down"
+        data-aos-delay="40"
+        data-aos-duration="2000"
+      >
         <FaMoneyCheckAlt className="text-7xl mx-auto text-[#65cbf0] hover:text-[#F261C2]" />
         <p className="font-bold text-3xl tracking-widest">Money Return</p>
         <p>

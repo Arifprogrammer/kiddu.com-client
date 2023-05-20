@@ -4,6 +4,8 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 //* ratings ------------------------
 const Heart = (
@@ -26,6 +28,7 @@ const customStyles = {
 //* -------------------------------------------------
 
 const Trending = ({ product }) => {
+  Aos.init();
   //* hooks
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);
@@ -49,7 +52,13 @@ const Trending = ({ product }) => {
   };
 
   return (
-    <div className="card lg:w-96 bg-base-100 shadow-xl card1">
+    <div
+      className="card lg:w-96 bg-base-100 shadow-xl card1"
+      data-aos="zoom-in-up"
+      data-aos-delay="40"
+      data-aos-duration="1000"
+      data-aos-easing="ease-in-out"
+    >
       <figure className="px-10 pt-10">
         <img src={toyPhoto} alt="toys" className="rounded-xl w-full" />
       </figure>

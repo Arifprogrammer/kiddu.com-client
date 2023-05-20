@@ -15,6 +15,8 @@ import Categories from "../Categories/Categories";
 import Trending from "../Trending/Trending";
 import { useEffect, useState } from "react";
 import Services from "../Services/Services";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const images = [
   img1,
@@ -36,6 +38,7 @@ const Home = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
+    Aos.init();
     const loadData = async () => {
       const response = await fetch(
         `https://kiddu-com-server.vercel.app/trending_toys?trending=true`
@@ -65,7 +68,12 @@ const Home = () => {
           </p>
           <div className="w-20 h-2 bg-[#F261C2] mx-auto lg:ml-0"></div>
         </div>
-        <div className="my-container grid grid-cols-1 lg:grid-cols-4 gallery my-12 gap-3 lg:rounded-[25rem] lg:overflow-hidden lg:relative">
+        <div
+          className="my-container grid grid-cols-1 lg:grid-cols-4 gallery my-12 gap-3 lg:rounded-[25rem] lg:overflow-hidden lg:relative"
+          data-aos="fade-up"
+          data-aos-delay="40"
+          data-aos-duration="2000"
+        >
           <div className="absolute inset-0 bg-[#deebf0] mix-blend-multiply hidden lg:block"></div>
           {images.map((img, index) => (
             <img key={index} src={img} alt="" />
