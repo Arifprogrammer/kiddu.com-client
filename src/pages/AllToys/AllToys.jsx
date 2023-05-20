@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
+import TableData from "./TableData";
 
 const AllToys = () => {
   //* hooks
@@ -70,24 +71,12 @@ const AllToys = () => {
             </thead>
             <tbody>
               {data.length > 0 ? (
-                data.map((singledata, index) => (
-                  <>
-                    <tr key={singledata._id}>
-                      <th>{index + 1}</th>
-                      <td>{singledata.sellerName}</td>
-                      <td>{singledata.toyName}</td>
-                      <td>{singledata.subCategory}</td>
-                      <td className="pl-6">{singledata.price}</td>
-                      <td className="pl-16">{singledata.quantity}</td>
-                      <td>
-                        <Link to={`/toy/${singledata._id}`}>
-                          <button className="rounded-2xl px-2 border-2 border-slate-400 text-sm">
-                            View Details
-                          </button>
-                        </Link>
-                      </td>
-                    </tr>
-                  </>
+                data.map((singleData, index) => (
+                  <TableData
+                    key={singleData._id}
+                    index={index}
+                    singleData={singleData}
+                  />
                 ))
               ) : (
                 <>
