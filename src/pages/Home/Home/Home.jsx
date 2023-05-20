@@ -11,6 +11,7 @@ import img9 from "../../../assets/Gallery/Resized/9.png";
 import img10 from "../../../assets/Gallery/Resized/10.png";
 import img11 from "../../../assets/Gallery/Resized/11.png";
 import img12 from "../../../assets/Gallery/Resized/12.png";
+import Categories from "../Categories/Categories";
 
 const images = [
   img1,
@@ -34,6 +35,8 @@ const Home = () => {
       <section className="my-12 lg:h-[50rem]">
         <img src={pic} alt="" className="w-full h-full" />
       </section>
+      {/* ------------------\\------------------------ */}
+
       {/* gallery section */}
       <section className="my-16 lg:my-24 px-4 lg:px-0">
         <div className="my-container text-center lg:text-left">
@@ -50,6 +53,20 @@ const Home = () => {
           {images.map((img, index) => (
             <img key={index} src={img} alt="" />
           ))}
+        </div>
+      </section>
+      {/* -------------------\\----------------------- */}
+
+      {/* shop by category section */}
+      <section className="my-16 lg:my-24 px-4 lg:px-0">
+        <div className="my-container text-center lg:text-left">
+          <h1 className="text-gray-500 text-2xl lg:text-4xl font-extrabold tracking-widest mb-3">
+            Categories
+          </h1>
+          <div className="w-20 h-2 bg-[#F261C2] mx-auto lg:ml-0"></div>
+        </div>
+        <div className="my-container my-12">
+          <Categories />
         </div>
       </section>
     </>

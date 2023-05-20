@@ -62,7 +62,7 @@ const Register = () => {
   };
   return (
     <>
-      <div className="card w-[95%] lg:w-[28%] bg-white mx-auto my-16 lg:mt-16">
+      <div className="card card1 w-[95%] lg:w-[28%] bg-white mx-auto my-16 lg:mt-16">
         <form onSubmit={handleRegister} className="card-body p-5 lg:p-8">
           <div className="form-control">
             <label className="label">
