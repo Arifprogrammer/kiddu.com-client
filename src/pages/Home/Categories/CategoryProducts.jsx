@@ -1,7 +1,11 @@
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import { AuthContext } from "../../../AuthProvider/AuthProvider";
+import { useContext } from "react";
 
+//* ratings ------------------------
 const Heart = (
   <path
     d="M433.5,67c-25.3-25.3-59-39.3-94.8-39.3s-69.6,14-94.9,39.4l-7.3,7.3l-7.5-7.5
@@ -19,9 +23,31 @@ const customStyles = {
   inactiveFillColor: "white",
   inactiveBoxColor: "#FBCFE8",
 };
+//* --------------------------------------
 
 const CategoryProducts = ({ product }) => {
+  //* hooks
+  const navigate = useNavigate();
+  const { user } = useContext(AuthContext);
+
+  //* variables
   const { _id, toyPhoto, toyName, price, ratings } = product;
+
+  //* functions
+  const showMessage = () => {
+    if (!user) {
+      Swal.fire(
+        "Ooooops!!!",
+        "You have to log in first to view details",
+        "error"
+      ).then(() => {
+        navigate(`/toy/${_id}`);
+      });
+    } else {
+      navigate(`/toy/${_id}`);
+    }
+  };
+
   return (
     <>
       <div className="card lg:card-side bg-[#C2E0EB] shadow-xl py-5 lg:py-0">
@@ -46,9 +72,9 @@ const CategoryProducts = ({ product }) => {
               />
             }
             <div>
-              <Link to={`/toy/${_id}`}>
-                <button className="btn btn-primary">View Details</button>
-              </Link>
+              <button onClick={showMessage} className="btn btn-primary">
+                View Details
+              </button>
             </div>
           </div>
         </div>

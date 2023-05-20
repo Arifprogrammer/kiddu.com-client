@@ -4,9 +4,10 @@ const Services = () => {
   return (
     <>
       <div className="border-4 border-[#F261C2] hover:border-[#65cbf0] py-8 px-4 lg:p-10 text-center space-y-4 rounded-md">
-        <FaTruck className="text-7xl mx-auto text-[#65cbf0]" />
+        <FaTruck className="text-7xl mx-auto text-[#65cbf0] hover:text-[#F261C2]" />
         <p className="font-bold text-3xl tracking-widest">Free Shipping</p>
         <p>
+          {" "}
           Free Shipping on Every Toy Order! Discover a hassle-free shopping
           experience with our toy marketplace where every purchase comes with
           the added benefit of free shipping. Shop to your heart's content,
@@ -21,18 +22,19 @@ const Services = () => {
         <FaClock className="text-7xl mx-auto text-[#F261C2]" />
         <p className="font-bold text-3xl tracking-widest">Support 24/7</p>
         <p>
-          tion is our top priority. That's why we offer dedicated support
-          available 24 hours a day, 7 days a week. Whether you have a question,
-          need assistance with an order, or require any kind of help, our
-          friendly and knowledgeable support team is always here to assist you.
-          Rest easy knowing that no matter the time, we're just a click or call
-          away, ready to provide prompt and reliable assistance. Shop with
+          Experience Unparalleled 24/7 Support! At our toy marketplace, customer
+          satisfaction is our top priority. That's why we offer dedicated
+          support available 24 hours a day, 7 days a week. Whether you have a
+          question, need assistance with an order, or require any kind of help,
+          our friendly and knowledgeable support team is always here to assist
+          you. Rest easy knowing that no matter the time, we're just a click or
+          call away, ready to provide prompt and reliable assistance. Shop with
           confidence on our toy marketplace, knowing that exceptional support is
           just a moment away.
         </p>
       </div>
       <div className="border-4 border-[#F261C2] hover:border-[#65cbf0] py-8 px-4 lg:p-10 text-center space-y-4 rounded-md">
-        <FaMoneyCheckAlt className="text-7xl mx-auto text-[#65cbf0]" />
+        <FaMoneyCheckAlt className="text-7xl mx-auto text-[#65cbf0] hover:text-[#F261C2]" />
         <p className="font-bold text-3xl tracking-widest">Money Return</p>
         <p>
           Hassle-Free Money Return Service! We understand that sometimes things
