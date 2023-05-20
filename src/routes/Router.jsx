@@ -9,6 +9,7 @@ import PrivateRoute from "./PrivateRoute";
 /* 
 color for UI
 paste - #C2E0EB
+deep paste - #65cbf0
 Pink - #F6C6EA
 deep pink - #F261C2
 bg -#F9F9F9

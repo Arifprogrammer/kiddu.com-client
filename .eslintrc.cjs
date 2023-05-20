@@ -14,5 +14,6 @@ module.exports = {
     "no-undef": 0,
     "react-hooks/exhaustive-deps": 0,
     "react-refresh/only-export-components": "warn",
+    "react/no-unescaped-entities": 0,
   },
 };

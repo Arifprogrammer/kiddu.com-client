@@ -3,8 +3,6 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { Navigate, useLocation } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 const PrivateRoute = ({ children }) => {
   //* hooks
@@ -21,23 +19,10 @@ const PrivateRoute = ({ children }) => {
   }
   if (user) {
     return children;
-  } else {
-    toast.warning("You have to log in first to view details", {
-      position: "top-center",
-      autoClose: 1000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
-    });
   }
-
   return (
     <>
       <Navigate to="/signin" state={{ from: location }} replace />
-      <ToastContainer />
     </>
   );
 };

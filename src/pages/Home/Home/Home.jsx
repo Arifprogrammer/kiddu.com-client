@@ -14,6 +14,7 @@ import img12 from "../../../assets/Gallery/Resized/12.png";
 import Categories from "../Categories/Categories";
 import Trending from "../Trending/Trending";
 import { useEffect, useState } from "react";
+import Services from "../Services/Services";
 
 const images = [
   img1,
@@ -94,7 +95,7 @@ const Home = () => {
             Trending
           </h1>
           <p className="text-[#9eb1d4] lg:text-xl font-semibold ml-1 tracking-tight pb-3">
-            Products
+            Toys
           </p>
           <div className="w-20 h-2 bg-[#F261C2] mx-auto lg:ml-0"></div>
         </div>
@@ -102,6 +103,20 @@ const Home = () => {
           {products.map((product) => (
             <Trending key={product._id} product={product} />
           ))}
+        </div>
+      </section>
+      {/* -------------------\\----------------------- */}
+
+      {/* service section */}
+      <section className="my-16 lg:my-24 px-3 lg:px-0">
+        <div className="my-container text-center lg:text-left">
+          <h1 className="text-gray-500 text-2xl lg:text-4xl font-extrabold tracking-widest pb-3">
+            Services
+          </h1>
+          <div className="w-20 h-2 bg-[#F261C2] mx-auto lg:ml-0"></div>
+        </div>
+        <div className="my-container flex flex-col lg:flex-row gap-4 mt-12">
+          <Services />
         </div>
       </section>
     </>
