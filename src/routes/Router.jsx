@@ -4,6 +4,7 @@ import Home from "../pages/Home/Home/Home";
 import Login from "../pages/Login/Login/Login";
 import Register from "../pages/Login/Register/Register";
 import SpecificToy from "../pages/SpecificToy/SpecificToy";
+import PrivateRoute from "./PrivateRoute";
 
 /* 
 color for UI
@@ -37,7 +38,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/toy/:id",
-        element: <SpecificToy />,
+        element: (
+          <PrivateRoute>
+            <SpecificToy />
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`https://kiddu-com-server.vercel.app/toy/${params.id}`),
       },

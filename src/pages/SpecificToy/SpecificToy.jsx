@@ -33,7 +33,6 @@ const SpecificToy = () => {
     quantity,
     description,
   } = useLoaderData();
-  console.log(_id);
   return (
     <section className="my-12 lg:my-20 px-3 lg:px-0">
       <div className="my-container grid grid-cols-1 lg:grid-cols-2 gap-y-6 lg:gap-y-0">
@@ -44,7 +43,7 @@ const SpecificToy = () => {
               {toyName}
             </h1>
             <div className="my-6 font-semibold text-2xl flex flex-col gap-y-4 pb-3 border-b-2 border-slate-600">
-              <p>$ {price}</p>
+              <p>Price: $ {price}</p>
               <Rating
                 style={{ maxWidth: 150 }}
                 value={Math.floor(ratings)}

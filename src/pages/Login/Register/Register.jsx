@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
@@ -11,6 +11,9 @@ const Register = () => {
   const [error, setError] = useState("");
   const { register } = useContext(AuthContext);
   const navigate = useNavigate();
+  const { state } = useLocation();
+  console.log(state?.from?.pathname);
+  const from = state?.from?.pathname || "/";
 
   //* functions
   const profileUpdate = (user, name, photo) => {
@@ -52,7 +55,7 @@ const Register = () => {
         // console.log(result.user);
         e.target.reset();
         setTimeout(() => {
-          navigate("/signin");
+          navigate(from, { replace: true });
         }, 2000);
       })
       .catch((error) => {

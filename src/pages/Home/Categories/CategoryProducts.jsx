@@ -31,7 +31,7 @@ const CategoryProducts = ({ product }) => {
         <div className="flex flex-col justify-center px-2 lg:px-4">
           <div className="space-y-5 text-center lg:text-left mt-4 lg:mt-0">
             <h2 className="text-2xl font-bold">{toyName}</h2>
-            <p className="text-2xl font-extrabold font-mono">${price}</p>
+            <p className="text-2xl font-extrabold font-mono">Price: ${price}</p>
             {
               <Rating
                 style={{ maxWidth: 150 }}

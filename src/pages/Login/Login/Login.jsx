@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-vars */
 import { useContext, useState } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
@@ -13,6 +13,8 @@ const Login = () => {
   const { signIn, signInWithGoogle, signInWithGithub } =
     useContext(AuthContext);
   const navigate = useNavigate();
+  const { state } = useLocation();
+  const from = state?.from?.pathname || "/";
 
   //* functions
   const handleSignin = (e) => {
@@ -35,7 +37,7 @@ const Login = () => {
           theme: "dark",
         });
         setTimeout(() => {
-          navigate("/");
+          navigate(from, { replace: true });
         }, 2000);
         e.target.reset();
       })
@@ -62,7 +64,7 @@ const Login = () => {
           theme: "dark",
         });
         setTimeout(() => {
-          navigate("/");
+          navigate(from, { replace: true });
         }, 1500);
       })
       .catch((error) => {
@@ -85,7 +87,7 @@ const Login = () => {
           theme: "dark",
         });
         setTimeout(() => {
-          navigate("/");
+          navigate(from, { replace: true });
         }, 1500);
       })
       .catch((error) => {
@@ -164,7 +166,11 @@ const Login = () => {
           </div>
           <p className="text-center font-semibold">
             Don't have an account?{" "}
-            <Link to="/register" className="text-[#F261C2] font-bold">
+            <Link
+              to="/register"
+              state={{ from: state?.from }}
+              className="text-[#F261C2] font-bold"
+            >
               Register
             </Link>
           </p>
