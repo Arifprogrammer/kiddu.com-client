@@ -3,6 +3,7 @@ import HomeLayout from "../layout/HomeLayout";
 import Home from "../pages/Home/Home/Home";
 import Login from "../pages/Login/Login/Login";
 import Register from "../pages/Login/Register/Register";
+import SpecificToy from "../pages/SpecificToy/SpecificToy";
 
 /* 
 color for UI
@@ -33,6 +34,12 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register />,
+      },
+      {
+        path: "/toy/:id",
+        element: <SpecificToy />,
+        loader: ({ params }) =>
+          fetch(`https://kiddu-com-server.vercel.app/toy/${params.id}`),
       },
     ],
   },

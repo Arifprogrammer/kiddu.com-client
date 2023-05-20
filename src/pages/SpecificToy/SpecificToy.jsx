@@ -1,6 +1,6 @@
+import { useLoaderData } from "react-router-dom";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
-import { Link } from "react-router-dom";
 
 const Heart = (
   <path
@@ -20,19 +20,31 @@ const customStyles = {
   inactiveBoxColor: "#FBCFE8",
 };
 
-const CategoryProducts = ({ product }) => {
-  const { _id, toyPhoto, toyName, price, ratings } = product;
+const SpecificToy = () => {
+  //* hooks
+  const {
+    _id,
+    toyPhoto,
+    toyName,
+    sellerName,
+    sellerEmail,
+    price,
+    ratings,
+    quantity,
+    description,
+  } = useLoaderData();
+  console.log(_id);
   return (
-    <>
-      <div className="card lg:card-side bg-[#C2E0EB] shadow-xl py-5 lg:py-0">
-        <figure>
-          <img src={toyPhoto} alt="Album" className="w-full p-6" />
-        </figure>
-        <div className="flex flex-col justify-center px-2 lg:px-4">
-          <div className="space-y-5 text-center lg:text-left mt-4 lg:mt-0">
-            <h2 className="text-2xl font-bold">{toyName}</h2>
-            <p className="text-2xl font-extrabold font-mono">${price}</p>
-            {
+    <section className="my-12 lg:my-20 px-3 lg:px-0">
+      <div className="my-container grid grid-cols-1 lg:grid-cols-2 gap-y-6 lg:gap-y-0">
+        <img src={toyPhoto} alt="" />
+        <div className="flex flex-col justify-center space-y-3">
+          <div>
+            <h1 className="text-2xl lg:text-4xl font-bold pb-3 border-b-2 border-slate-600">
+              {toyName}
+            </h1>
+            <div className="my-6 font-semibold text-2xl flex flex-col gap-y-4 pb-3 border-b-2 border-slate-600">
+              <p>$ {price}</p>
               <Rating
                 style={{ maxWidth: 150 }}
                 value={Math.floor(ratings)}
@@ -42,19 +54,20 @@ const CategoryProducts = ({ product }) => {
                 radius="medium"
                 spaceInside="large"
                 spaceBetween="small"
-                className="mx-auto lg:ml-0"
+                className=""
               />
-            }
-            <div>
-              <Link to={`/toy/${_id}`}>
-                <button className="btn btn-primary">View Details</button>
-              </Link>
+              <p>Available Quantity: {quantity}</p>
             </div>
+            <p className="text-lg pb-3 border-b-2 border-slate-600">
+              {description}
+            </p>
+            <p className="mt-5 font-semibold">Seller Name: {sellerName}</p>
+            <p className="font-semibold">Seller Email: {sellerEmail}</p>
           </div>
         </div>
       </div>
-    </>
+    </section>
   );
 };
 
-export default CategoryProducts;
+export default SpecificToy;
