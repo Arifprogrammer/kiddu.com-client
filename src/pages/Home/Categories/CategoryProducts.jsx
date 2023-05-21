@@ -55,7 +55,7 @@ const CategoryProducts = ({ product }) => {
           <img src={toyPhoto} alt="Album" className="w-full p-6" />
         </figure>
         <div className="flex flex-col justify-center px-2 lg:px-4">
-          <div className="space-y-5 text-center lg:text-left mt-4 lg:mt-0">
+          <div className="space-y-5 text-center lg:text-left mt-4 lg:mt-0 lg:w-60">
             <h2 className="text-2xl font-bold">{toyName}</h2>
             <p className="text-2xl font-extrabold font-mono">Price: ${price}</p>
             {

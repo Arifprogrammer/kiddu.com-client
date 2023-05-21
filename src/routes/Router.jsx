@@ -7,6 +7,8 @@ import SpecificToy from "../pages/SpecificToy/SpecificToy";
 import PrivateRoute from "./PrivateRoute";
 import Blog from "../pages/Blog/Blog";
 import AllToys from "../pages/AllToys/AllToys";
+import MyToys from "../pages/MyToys/MyToys";
+import UpdateData from "../pages/MyToys/UpdateData";
 
 /* 
 color for UI
@@ -57,6 +59,16 @@ const router = createBrowserRouter([
         path: "/toys",
         element: <AllToys />,
         loader: () => fetch("https://kiddu-com-server.vercel.app/toys"),
+      },
+      {
+        path: "/my_toys",
+        element: <MyToys />,
+      },
+      {
+        path: "/my_toys/:id",
+        element: <UpdateData />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/my_toys/${params.id}`),
       },
     ],
   },

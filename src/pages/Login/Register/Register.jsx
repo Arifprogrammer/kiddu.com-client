@@ -89,7 +89,7 @@ const Register = () => {
             </label>
             <input
               name="photo"
-              type="photo"
+              type="text"
               placeholder="Type your photo url"
               required
               className="input input-bordered bg-[#C2E0EB] text-black font-semibold"
@@ -104,7 +104,7 @@ const Register = () => {
             <input
               name="email"
               type="email"
-              placeholder="Type your email"
+              placeholder="Type your emaill"
               required
               className="input input-bordered bg-[#C2E0EB] text-black font-semibold"
             />
