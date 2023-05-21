@@ -10,6 +10,7 @@ import AllToys from "../pages/AllToys/AllToys";
 import MyToys from "../pages/MyToys/MyToys";
 import UpdateData from "../pages/MyToys/UpdateData";
 import AddNewToy from "../pages/AddNewToy/AddNewToy";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
 /* 
 color for UI
@@ -25,14 +26,11 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <HomeLayout />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
         element: <Home />,
-      },
-      {
-        path: "/about",
-        element: <p>about</p>,
       },
       {
         path: "/signin",
