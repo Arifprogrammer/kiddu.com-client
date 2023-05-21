@@ -41,7 +41,7 @@ const Home = () => {
     Aos.init();
     const loadData = async () => {
       const response = await fetch(
-        `http://localhost:5000/trending_toys?trending=true`
+        `https://kidducom-server.up.railway.app/trending_toys?trending=true`
       );
       const data = await response.json();
       setProducts(data);

@@ -42,15 +42,18 @@ const AddNewToy = () => {
     };
     console.log(update);
     const addNewToy = async () => {
-      const response = await fetch(`http://localhost:5000/toys`, {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify(update),
-      });
+      const response = await fetch(
+        `https://kidducom-server.up.railway.app/toys`,
+        {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify(update),
+        }
+      );
       const data = await response.json();
     };
     addNewToy();
-    // e.target.reset();
+    e.target.reset();
   };
 
   return (
@@ -140,7 +143,7 @@ const AddNewToy = () => {
               <div className="form-control">
                 <label className="label">
                   <span className="label-text text-black font-semibold text-base">
-                    Quantity
+                    Available Quantity
                   </span>
                 </label>
                 <input

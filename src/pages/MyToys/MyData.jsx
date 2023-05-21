@@ -8,7 +8,16 @@ const MyData = ({ singleData, index, handleDeleteData }) => {
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);
 
-  const { _id, sellerName, toyName, subCategory, price, quantity } = singleData;
+  const {
+    _id,
+    sellerName,
+    toyName,
+    subCategory,
+    price,
+    quantity,
+    sellerEmail,
+    ratings,
+  } = singleData;
 
   const showMessage = () => {
     if (!user) {
@@ -26,13 +35,15 @@ const MyData = ({ singleData, index, handleDeleteData }) => {
 
   return (
     <>
-      <tr>
+      <tr className="custom-table">
         <th>{index + 1}</th>
         <td>{sellerName}</td>
+        <td>{sellerEmail}</td>
         <td>{toyName}</td>
         <td>{subCategory}</td>
         <td className="pl-6">{price}</td>
         <td className="pl-16">{quantity}</td>
+        <td className="pl-6">{ratings}</td>
         <td>
           <button
             onClick={showMessage}

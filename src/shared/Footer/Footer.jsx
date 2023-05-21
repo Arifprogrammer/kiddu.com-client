@@ -2,7 +2,7 @@ import logo from "../../assets/Kiddu-Logo-removebg.png";
 
 const Footer = () => {
   return (
-    <section className="py-16 bg-base-200">
+    <section className="pt-16 pb-3 bg-base-200">
       <footer className="footer text-base-content my-container text-base font-semibold">
         <div className="font-normal font-sans text-center lg:text-left mx-auto lg:ml-0">
           <img src={logo} alt="" className="h-24 w-28 mx-auto lg:ml-0" />
@@ -67,7 +67,19 @@ const Footer = () => {
           <a className="link link-hover mx-auto lg:ml-0">Privacy policy</a>
           <a className="link link-hover mx-auto lg:ml-0">Cookie policy</a>
         </div>
+        <div className="mx-auto lg:ml-0">
+          <span className="footer-title mb-6 mx-auto lg:ml-0">
+            Store Information
+          </span>
+          <p className="mx-auto lg:ml-0">2005 Your Address Goes Here.</p>
+          <p className="mx-auto lg:ml-0">896, Address 10010, HGJ</p>
+          <p className="mx-auto lg:ml-0">Phone/Fax: 0123456789</p>
+          <p className="mx-auto lg:ml-0">Email: demo@example.com</p>
+        </div>
       </footer>
+      <h1 className="text-center mt-20">
+        All rights reserved &copy; Kiddu.com
+      </h1>
     </section>
   );
 };

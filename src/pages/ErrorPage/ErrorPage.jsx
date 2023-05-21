@@ -15,7 +15,7 @@ const ErrorPage = () => {
         <img src={errorPic} alt="" className="w-full" />
       </div>
       <span
-        className="p-5 text-xl bg-yellow-500 rounded-full text-black"
+        className="p-5 text-xl bg-[#F261C2] rounded-full text-black"
         onClick={() => navigate(-1)}
       >
         <FaArrowLeft />

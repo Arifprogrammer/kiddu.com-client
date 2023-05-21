@@ -11,7 +11,7 @@ const Categories = () => {
   useEffect(() => {
     const loadData = async () => {
       const response = await fetch(
-        `http://localhost:5000/toys_category?subCategory=${query}`
+        `https://kidducom-server.up.railway.app/toys_category?subCategory=${query}`
       );
       const data = await response.json();
       setProducts(data);

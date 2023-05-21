@@ -22,12 +22,6 @@ const UpdateData = () => {
     console.log(update);
 
     const loadNewData = async () => {
-      const response = await fetch(`http://localhost:5000/my_toys/${id}`, {
-        method: "PUT",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify(update),
-      });
-      const data = await response.json();
       toast.success("You've successfully updated your product", {
         position: "top-center",
         autoClose: 1000,
@@ -38,6 +32,16 @@ const UpdateData = () => {
         progress: undefined,
         theme: "dark",
       });
+      const response = await fetch(
+        `https://kidducom-server.up.railway.app/my_toys/${id}`,
+        {
+          method: "PUT",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify(update),
+        }
+      );
+      const data = await response.json();
+
       setTimeout(() => {
         navigate("/my_toys");
       }, 2000);
@@ -47,7 +51,9 @@ const UpdateData = () => {
 
   useEffect(() => {
     const loadSpecificData = async () => {
-      const response = await fetch(`http://localhost:5000/toy/${id}`);
+      const response = await fetch(
+        `https://kidducom-server.up.railway.app/toy/${id}`
+      );
       const data = await response.json();
       setData(data);
       console.log(data);

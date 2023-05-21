@@ -30,21 +30,24 @@ const MyToys = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
+        toast.success("You've successfully deleted your product", {
+          position: "top-center",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
         const deleteData = async () => {
-          const response = await fetch(`http://localhost:5000/my_toys/${id}`, {
-            method: "DELETE",
-          });
+          const response = await fetch(
+            `https://kidducom-server.up.railway.app/my_toys/${id}`,
+            {
+              method: "DELETE",
+            }
+          );
           const data = await response.json();
-          toast.success("You've successfully deleted your product", {
-            position: "top-center",
-            autoClose: 1000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "dark",
-          });
         };
         deleteData();
         const newData = data.filter((d) => d._id !== id);
@@ -57,7 +60,7 @@ const MyToys = () => {
   useEffect(() => {
     const loadNewData = async () => {
       const response = await fetch(
-        `http://localhost:5000/my_toys?sellerEmail=${user?.email}`
+        `https://kidducom-server.up.railway.app/my_toys?sellerEmail=${user?.email}`
       );
       const data = await response.json();
       setData(data);
@@ -82,6 +85,7 @@ const MyToys = () => {
   return (
     <section className="my-12 lg:my-20">
       <div className="w-32 my-16 mx-auto">
+        <p className="text-center font-semibold text-lg mb-4">Sort by price</p>
         <Select
           defaultValue={selectedOption}
           onChange={setSelectedOption}
@@ -89,15 +93,17 @@ const MyToys = () => {
         />
       </div>
       <div className="overflow-x-auto my-container">
-        <table className="table table-compact w-full custom-table">
+        <table className="table table-compact w-full">
           <thead>
             <tr>
               <th>SL</th>
               <th>Seller</th>
+              <th>Email</th>
               <th>Toy Name</th>
               <th>Sub-category</th>
               <th>Price</th>
               <th>Available Quantity</th>
+              <th>Ratings</th>
               <th>Details</th>
               <th>Update</th>
               <th>Delete</th>

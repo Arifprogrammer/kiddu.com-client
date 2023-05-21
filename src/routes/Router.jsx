@@ -47,7 +47,8 @@ const router = createBrowserRouter([
             <SpecificToy />
           </PrivateRoute>
         ),
-        loader: ({ params }) => fetch(`http://localhost:5000/toy/${params.id}`),
+        loader: ({ params }) =>
+          fetch(`https://kidducom-server.up.railway.app/toy/${params.id}`),
       },
       {
         path: "/blog",
@@ -56,7 +57,7 @@ const router = createBrowserRouter([
       {
         path: "/toys",
         element: <AllToys />,
-        loader: () => fetch("http://localhost:5000/toys"),
+        loader: () => fetch("https://kidducom-server.up.railway.app/toys"),
       },
       {
         path: "/my_toys",
@@ -70,7 +71,7 @@ const router = createBrowserRouter([
         path: "/my_toys/:id",
         element: <UpdateData />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/my_toys/${params.id}`),
+          fetch(`https://kidducom-server.up.railway.app/my_toys/${params.id}`),
       },
       {
         path: "/toy/new",
