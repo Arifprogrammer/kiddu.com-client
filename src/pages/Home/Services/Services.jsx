@@ -8,7 +8,7 @@ const Services = () => {
     <>
       <div
         className="border-4 border-[#F261C2] hover:border-[#65cbf0] py-8 px-4 lg:p-10 text-center space-y-4 rounded-md"
-        data-aos="flip-down"
+        data-aos="fade-up"
         data-aos-delay="40"
         data-aos-duration="2000"
       >
@@ -28,7 +28,7 @@ const Services = () => {
       </div>
       <div
         className="border-4 border-[#65cbf0] py-8 px-4 lg:p-10 text-center space-y-4 rounded-md"
-        data-aos="flip-down"
+        data-aos="fade-up"
         data-aos-delay="40"
         data-aos-duration="2000"
       >
@@ -48,7 +48,7 @@ const Services = () => {
       </div>
       <div
         className="border-4 border-[#F261C2] hover:border-[#65cbf0] py-8 px-4 lg:p-10 text-center space-y-4 rounded-md"
-        data-aos="flip-down"
+        data-aos="fade-up"
         data-aos-delay="40"
         data-aos-duration="2000"
       >

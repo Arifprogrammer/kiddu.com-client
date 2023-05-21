@@ -83,17 +83,19 @@ const Home = () => {
       {/* -------------------\\----------------------- */}
 
       {/* shop by category section */}
-      <section className="my-16 lg:my-24 px-4 lg:px-0">
-        <div className="my-container text-center lg:text-left">
-          <h1 className="text-gray-500 text-2xl lg:text-4xl font-extrabold tracking-widest mb-3">
-            Categories
-          </h1>
-          <div className="w-20 h-2 bg-[#F261C2] mx-auto lg:ml-0"></div>
-        </div>
-        <div className="my-container my-12">
-          <Categories />
-        </div>
-      </section>
+      {
+        <section className="my-16 lg:my-24 px-4 lg:px-0">
+          <div className="my-container text-center lg:text-left">
+            <h1 className="text-gray-500 text-2xl lg:text-4xl font-extrabold tracking-widest mb-3">
+              Categories
+            </h1>
+            <div className="w-20 h-2 bg-[#F261C2] mx-auto lg:ml-0"></div>
+          </div>
+          <div className="my-container my-12">
+            <Categories />
+          </div>
+        </section>
+      }
       {/* -------------------\\----------------------- */}
 
       {/* trending toys section */}

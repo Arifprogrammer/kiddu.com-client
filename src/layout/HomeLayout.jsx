@@ -1,9 +1,25 @@
-import { Outlet, useNavigation } from "react-router-dom";
+import { Outlet, useLocation, useNavigation } from "react-router-dom";
 import ScrollToTop from "../utils/ScrollToTop";
 import Header from "../shared/Header/Header";
 import Footer from "../shared/Footer/Footer";
+import { useEffect } from "react";
 
 const HomeLayout = () => {
+  //* hooks
+  const { pathname } = useLocation();
+
+  //* useEffects
+  useEffect(() => {
+    console.log(pathname);
+    if (pathname === "/") {
+      document.title = `Kiddu.com | Home`;
+    } else {
+      const newPath = pathname.split("/");
+      console.log(newPath);
+      document.title = `Kiddu.com | ${newPath[1].toUpperCase()}`;
+    }
+  }, [pathname]);
+
   const navigation = useNavigation();
   return (
     <>
