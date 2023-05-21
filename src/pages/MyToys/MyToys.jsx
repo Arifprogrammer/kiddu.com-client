@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import MyData from "./MyData";
@@ -97,6 +98,7 @@ const MyToys = () => {
               <th>Sub-category</th>
               <th>Price</th>
               <th>Available Quantity</th>
+              <th>Details</th>
               <th>Update</th>
               <th>Delete</th>
             </tr>

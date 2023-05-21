@@ -96,7 +96,7 @@ const Header = () => {
                 </li>
                 <li>
                   <NavLink
-                    to="/toys/upload"
+                    to="/toy/new"
                     className={({ isActive }) =>
                       isActive
                         ? "text-black bg-[#F261C2] font-semibold"
@@ -187,7 +187,7 @@ const Header = () => {
               </li>
               <li>
                 <NavLink
-                  to="/toys/upload"
+                  to="/toy/new"
                   className={({ isActive }) =>
                     isActive
                       ? "text-black bg-[#F261C2] font-semibold"

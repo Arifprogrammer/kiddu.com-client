@@ -9,6 +9,7 @@ import Blog from "../pages/Blog/Blog";
 import AllToys from "../pages/AllToys/AllToys";
 import MyToys from "../pages/MyToys/MyToys";
 import UpdateData from "../pages/MyToys/UpdateData";
+import AddNewToy from "../pages/AddNewToy/AddNewToy";
 
 /* 
 color for UI
@@ -48,8 +49,7 @@ const router = createBrowserRouter([
             <SpecificToy />
           </PrivateRoute>
         ),
-        loader: ({ params }) =>
-          fetch(`https://kiddu-com-server.vercel.app/toy/${params.id}`),
+        loader: ({ params }) => fetch(`http://localhost:5000/toy/${params.id}`),
       },
       {
         path: "/blog",
@@ -58,7 +58,7 @@ const router = createBrowserRouter([
       {
         path: "/toys",
         element: <AllToys />,
-        loader: () => fetch("https://kiddu-com-server.vercel.app/toys"),
+        loader: () => fetch("http://localhost:5000/toys"),
       },
       {
         path: "/my_toys",
@@ -73,6 +73,14 @@ const router = createBrowserRouter([
         element: <UpdateData />,
         loader: ({ params }) =>
           fetch(`http://localhost:5000/my_toys/${params.id}`),
+      },
+      {
+        path: "/toy/new",
+        element: (
+          <PrivateRoute>
+            <AddNewToy />
+          </PrivateRoute>
+        ),
       },
     ],
   },

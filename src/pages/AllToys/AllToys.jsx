@@ -13,7 +13,7 @@ const AllToys = () => {
     e.preventDefault();
     const loadNewData = async () => {
       const response = await fetch(
-        `https://kiddu-com-server.vercel.app/searchByToyName/${text}`
+        `http://localhost:5000/searchByToyName/${text}`
       );
       const data = await response.json();
       setData(data);
@@ -28,7 +28,7 @@ const AllToys = () => {
     }
     const loadNewData = async () => {
       const response = await fetch(
-        `https://kiddu-com-server.vercel.app/searchByToyName/${text}`
+        `http://localhost:5000/searchByToyName/${text}`
       );
       const data = await response.json();
       setData(data);

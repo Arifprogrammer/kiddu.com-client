@@ -10,7 +10,7 @@ const UpdateData = () => {
   const [data, setData] = useState([]);
   const navigate = useNavigate();
 
-  const handleRegister = (e) => {
+  const handleUpdateData = (e) => {
     e.preventDefault();
     const form = e.target;
     const toyName = form.name.value;
@@ -19,6 +19,7 @@ const UpdateData = () => {
     const quantity = parseInt(form.quantity.value);
     const description = form.description.value;
     const update = { toyName, toyPhoto, price, quantity, description };
+    console.log(update);
 
     const loadNewData = async () => {
       const response = await fetch(`http://localhost:5000/my_toys/${id}`, {
@@ -57,7 +58,7 @@ const UpdateData = () => {
     <section className="mt-12 lg:my-20">
       <div className="my-container">
         <div className="card card1 w-[95%] lg:w-[50%] bg-white mx-auto my-16 lg:mt-16">
-          <form onSubmit={handleRegister} className="card-body p-5 lg:p-8">
+          <form onSubmit={handleUpdateData} className="card-body p-5 lg:p-8">
             <div className="form-control">
               <label className="label">
                 <span className="label-text text-black font-semibold text-base">
@@ -84,31 +85,33 @@ const UpdateData = () => {
                 className="input input-bordered bg-[#C2E0EB] text-black font-semibold"
               />
             </div>
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text text-black font-semibold text-base">
-                  Price
-                </span>
-              </label>
-              <input
-                defaultValue={data.price}
-                name="price"
-                type="text"
-                className="input input-bordered bg-[#C2E0EB] text-black font-semibold"
-              />
-            </div>
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text text-black font-semibold text-base">
-                  Quantity
-                </span>
-              </label>
-              <input
-                defaultValue={data.quantity}
-                name="quantity"
-                type="text"
-                className="input input-bordered bg-[#C2E0EB] text-black font-semibold"
-              />
+            <div className="flex flex-col lg:flex-row justify-evenly">
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text text-black font-semibold text-base">
+                    Price
+                  </span>
+                </label>
+                <input
+                  defaultValue={data.price}
+                  name="price"
+                  type="text"
+                  className="input input-bordered bg-[#C2E0EB] text-black font-semibold"
+                />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text text-black font-semibold text-base">
+                    Quantity
+                  </span>
+                </label>
+                <input
+                  defaultValue={data.quantity}
+                  name="quantity"
+                  type="text"
+                  className="input input-bordered bg-[#C2E0EB] text-black font-semibold"
+                />
+              </div>
             </div>
             <div className="form-control">
               <label className="label">
@@ -121,7 +124,7 @@ const UpdateData = () => {
                 name="description"
                 cols="30"
                 rows="10"
-                className="input input-bordered bg-[#C2E0EB] text-black font-semibold h-36"
+                className="input input-bordered bg-[#C2E0EB] text-black font-semibold h-36 pt-2"
               ></textarea>
             </div>
             <button
