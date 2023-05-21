@@ -10,12 +10,10 @@ const HomeLayout = () => {
 
   //* useEffects
   useEffect(() => {
-    console.log(pathname);
     if (pathname === "/") {
       document.title = `Kiddu.com | Home`;
     } else {
       const newPath = pathname.split("/");
-      console.log(newPath);
       document.title = `Kiddu.com | ${newPath[1].toUpperCase()}`;
     }
   }, [pathname]);
