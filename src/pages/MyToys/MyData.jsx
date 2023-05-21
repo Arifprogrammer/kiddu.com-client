@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const MyData = ({ singleData, index }) => {
+const MyData = ({ singleData, index, handleDeleteData }) => {
   const { _id, sellerName, toyName, subCategory, price, quantity } = singleData;
   return (
     <>
@@ -19,7 +19,10 @@ const MyData = ({ singleData, index }) => {
           </Link>
         </td>
         <td>
-          <button className="rounded-2xl px-2 border-2 border-slate-400 text-sm">
+          <button
+            onClick={() => handleDeleteData(_id)}
+            className="rounded-2xl px-2 border-2 border-slate-400 text-sm"
+          >
             Delete
           </button>
         </td>

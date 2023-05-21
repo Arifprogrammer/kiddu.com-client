@@ -2,6 +2,9 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import MyData from "./MyData";
 import Select from "react-select";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Swal from "sweetalert2";
 
 const options = [
   { value: "low", label: "Low" },
@@ -14,11 +17,46 @@ const MyToys = () => {
   const [data, setData] = useState([]);
   const [selectedOption, setSelectedOption] = useState(null);
 
+  //* function
+  const handleDeleteData = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const deleteData = async () => {
+          const response = await fetch(`http://localhost:5000/my_toys/${id}`, {
+            method: "DELETE",
+          });
+          const data = await response.json();
+          toast.success("You've successfully deleted your product", {
+            position: "top-center",
+            autoClose: 1000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+          });
+        };
+        deleteData();
+        const newData = data.filter((d) => d._id !== id);
+        setData(newData);
+      }
+    });
+  };
+
   //* useEffects
   useEffect(() => {
     const loadNewData = async () => {
       const response = await fetch(
-        `http://localhost:5000/my_toys?sellerEmail=john.doe@example.com`
+        `http://localhost:5000/my_toys?sellerEmail=${user?.email}`
       );
       const data = await response.json();
       setData(data);
@@ -69,11 +107,13 @@ const MyToys = () => {
                 key={singleData._id}
                 index={index}
                 singleData={singleData}
+                handleDeleteData={handleDeleteData}
               />
             ))}
           </tbody>
         </table>
       </div>
+      <ToastContainer />
     </section>
   );
 };

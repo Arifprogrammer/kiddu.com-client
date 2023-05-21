@@ -5,7 +5,6 @@ import Footer from "../shared/Footer/Footer";
 
 const HomeLayout = () => {
   const navigation = useNavigation();
-  console.log(navigation.state);
   return (
     <>
       <Header />
