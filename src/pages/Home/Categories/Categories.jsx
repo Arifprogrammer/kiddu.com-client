@@ -11,7 +11,7 @@ const Categories = () => {
   useEffect(() => {
     const loadData = async () => {
       const response = await fetch(
-        `https://kidducom-server.up.railway.app/toys_category?subCategory=${query}`
+        `https://kiddu-com-server.vercel.app/toys_category?subCategory=${query}`
       );
       const data = await response.json();
       setProducts(data);

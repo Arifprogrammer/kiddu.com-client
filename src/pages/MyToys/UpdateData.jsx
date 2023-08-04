@@ -33,7 +33,7 @@ const UpdateData = () => {
         theme: "dark",
       });
       const response = await fetch(
-        `https://kidducom-server.up.railway.app/my_toys/${id}`,
+        `https://kiddu-com-server.vercel.app/my_toys/${id}`,
         {
           method: "PUT",
           headers: { "content-type": "application/json" },
@@ -52,7 +52,7 @@ const UpdateData = () => {
   useEffect(() => {
     const loadSpecificData = async () => {
       const response = await fetch(
-        `https://kidducom-server.up.railway.app/toy/${id}`
+        `https://kiddu-com-server.vercel.app/toy/${id}`
       );
       const data = await response.json();
       setData(data);

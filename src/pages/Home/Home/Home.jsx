@@ -41,7 +41,7 @@ const Home = () => {
     Aos.init();
     const loadData = async () => {
       const response = await fetch(
-        `https://kidducom-server.up.railway.app/trending_toys?trending=true`
+        `https://kiddu-com-server.vercel.app/trending_toys?trending=true`
       );
       const data = await response.json();
       setProducts(data);
@@ -52,8 +52,8 @@ const Home = () => {
   return (
     <>
       {/* banner section */}
-      <section className="my-12 lg:h-[50rem]">
-        <img src={pic} alt="" className="w-full h-full" />
+      <section className="my-12">
+        <img src={pic} alt="" className="my-container" />
       </section>
       {/* ------------------\\------------------------ */}
 

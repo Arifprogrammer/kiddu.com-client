@@ -48,7 +48,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`https://kidducom-server.up.railway.app/toy/${params.id}`),
+          fetch(`https://kiddu-com-server.vercel.app/toy/${params.id}`),
       },
       {
         path: "/blog",
@@ -57,7 +57,7 @@ const router = createBrowserRouter([
       {
         path: "/toys",
         element: <AllToys />,
-        loader: () => fetch("https://kidducom-server.up.railway.app/toys"),
+        loader: () => fetch("https://kiddu-com-server.vercel.app/toys"),
       },
       {
         path: "/my_toys",
@@ -71,7 +71,7 @@ const router = createBrowserRouter([
         path: "/my_toys/:id",
         element: <UpdateData />,
         loader: ({ params }) =>
-          fetch(`https://kidducom-server.up.railway.app/my_toys/${params.id}`),
+          fetch(`https://kiddu-com-server.vercel.app/my_toys/${params.id}`),
       },
       {
         path: "/toy/new",

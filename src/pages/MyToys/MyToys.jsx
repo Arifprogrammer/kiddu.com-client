@@ -42,7 +42,7 @@ const MyToys = () => {
         });
         const deleteData = async () => {
           const response = await fetch(
-            `https://kidducom-server.up.railway.app/my_toys/${id}`,
+            `https://kiddu-com-server.vercel.app/my_toys/${id}`,
             {
               method: "DELETE",
             }
@@ -60,7 +60,7 @@ const MyToys = () => {
   useEffect(() => {
     const loadNewData = async () => {
       const response = await fetch(
-        `https://kidducom-server.up.railway.app/my_toys?sellerEmail=${user?.email}`
+        `https://kiddu-com-server.vercel.app/my_toys?sellerEmail=${user?.email}`
       );
       const data = await response.json();
       setData(data);

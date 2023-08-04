@@ -42,14 +42,11 @@ const AddNewToy = () => {
     };
     console.log(update);
     const addNewToy = async () => {
-      const response = await fetch(
-        `https://kidducom-server.up.railway.app/toys`,
-        {
-          method: "POST",
-          headers: { "content-type": "application/json" },
-          body: JSON.stringify(update),
-        }
-      );
+      const response = await fetch(`https://kiddu-com-server.vercel.app/toys`, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(update),
+      });
       const data = await response.json();
     };
     addNewToy();
